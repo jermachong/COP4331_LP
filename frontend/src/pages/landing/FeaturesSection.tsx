@@ -5,7 +5,7 @@ import { FaRoute, FaCloudSun, FaWallet, FaMapMarkedAlt } from "react-icons/fa";
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section id="features" className="py-5 bg-light">
+    <section id="features" className="py-5">
       <Container>
         <Row className="mb-5">
           <Col className="text-center">

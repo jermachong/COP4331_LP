@@ -31,7 +31,7 @@ const PopularTripsSection: React.FC = () => {
 
 
   return (
-    <section className="py-5 bg-light">
+    <section className="py-5">
       <div className="container">
         <h2 className="text-center mb-5 fw-bold">Explore Popular Trips</h2>
         <div className="row g-4">
