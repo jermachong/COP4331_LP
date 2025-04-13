@@ -15,23 +15,6 @@ const UserProfile: React.FC = () => {
   const [newPass, setNewPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
 
-  {
-    /* const confirmedTrips = 3;
-  const upcomingTrips = 2;
-  const totalTrips = 5;
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfileImage(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  }; */
-  }
-
   useEffect(() => {
     // get user data from the backend
     const getUserData = async () => {
@@ -42,14 +25,11 @@ const UserProfile: React.FC = () => {
         const userId = user.userId;
 
         // send to backend
-        const response = await fetch(
-          "https://travelinggenie.com/api/get-user",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId }),
-          }
-        );
+        const response = await fetch(`${API_URL}/get-user`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
 
         const data = await response.json();
         if (response.ok) {
@@ -70,6 +50,10 @@ const UserProfile: React.FC = () => {
   const handleModalToggle = () => {
     setShowModal(!showModal);
   };
+  const API_URL =
+    import.meta.env.MODE === "development"
+      ? "http://localhost:5000/api"
+      : "https://travelinggenie.com/api";
 
   const handlePassChange = async () => {
     try {
@@ -84,7 +68,7 @@ const UserProfile: React.FC = () => {
       }
 
       // send to backend
-      const response = await fetch("https://travelinggenie.com/api/editUser", {
+      const response = await fetch(`${API_URL}/editUser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -117,7 +101,7 @@ const UserProfile: React.FC = () => {
       const userId = user.userId;
 
       // send to backend
-      const response = await fetch("https://travelinggenie.com/api/editUser", {
+      const response = await fetch(`${API_URL}/edituser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

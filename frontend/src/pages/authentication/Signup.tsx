@@ -27,6 +27,10 @@ const Signup: React.FC<SignupProps> = ({ onSignupSuccess }) => {
     setError("");
     setSuccess("");
 
+    const API_URL =
+      import.meta.env.MODE === "development"
+        ? "http://localhost:5000/api"
+        : "https://travelinggenie.com/api";
     // Validate password
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -38,7 +42,7 @@ const Signup: React.FC<SignupProps> = ({ onSignupSuccess }) => {
     }
 
     try {
-      const response = await fetch("http:travelinggenie/api/register", {
+      const response = await fetch(`${API_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

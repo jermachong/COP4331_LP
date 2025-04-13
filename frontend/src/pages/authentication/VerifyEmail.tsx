@@ -8,6 +8,10 @@ const VerifyEmail: React.FC = () => {
     "verifying"
   );
   const [message, setMessage] = useState("Verifying your email...");
+  const API_URL =
+    import.meta.env.MODE === "development"
+      ? "http://localhost:5000/api"
+      : "https://travelinggenie.com/api";
 
   useEffect(() => {
     const verifyEmail = async () => {
@@ -20,9 +24,7 @@ const VerifyEmail: React.FC = () => {
       }
 
       try {
-        const response = await fetch(
-          `http://travelinggenie.com/api/verify-email/${token}`
-        );
+        const response = await fetch(`${API_URL}/verify-email/${token}`);
         const data = await response.json();
 
         if (response.ok) {

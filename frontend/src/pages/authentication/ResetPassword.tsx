@@ -32,6 +32,10 @@ const ResetPassword: React.FC = () => {
       );
       return;
     }
+    const API_URL =
+      import.meta.env.MODE === "development"
+        ? "http://localhost:5000/api"
+        : "https://travelinggenie.com/api";
 
     const token = searchParams.get("token");
     if (!token) {
@@ -41,16 +45,13 @@ const ResetPassword: React.FC = () => {
     }
 
     try {
-      const response = await fetch(
-        "https://travelinggenie.com/api/reset-password",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ token, newPassword }),
-        }
-      );
+      const response = await fetch(`${API_URL}/reset-password`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token, newPassword }),
+      });
 
       const data = await response.json();
 
