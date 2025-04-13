@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
-import { Heart, MapPin, Users, Clock, Star, Search } from "lucide-react";
+import { Heart, MapPin, Users, Clock, Search } from "lucide-react";
 import { useAuth } from "../../../../contexts/AuthContext";
 
 interface SavedTrip {
@@ -23,20 +23,25 @@ const SavedTrips: React.FC = () => {
 
   useEffect(() => {
     const fetchSavedTrips = async () => {
-      if (!user) {
+      if (!user || isNaN(Number(user.userId))) {
         setError("Please log in to view saved trips");
         setLoading(false);
         return;
       }
 
       try {
-        const response = await fetch("/api/searchItinerary", {
+        const API_URL =
+          import.meta.env.MODE === "development"
+            ? "http://localhost:5000/api"
+            : "https://travelinggenie.com/api";
+
+        const response = await fetch(`${API_URL}/searchItinerary`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            userId: user.userId,
+            userId: Number(user.userId), // force number
             jwtToken: user.token,
           }),
         });
@@ -50,7 +55,6 @@ const SavedTrips: React.FC = () => {
           throw new Error(data.error);
         }
 
-        // Transform the data to match our SavedTrip interface
         const transformedTrips = data.Itineraries.map((itinerary: any) => ({
           id: itinerary.ItineraryId,
           title: itinerary.Itinerary.title,
@@ -81,7 +85,11 @@ const SavedTrips: React.FC = () => {
     if (!user) return;
 
     try {
-      const response = await fetch("/api/deleteItinerary", {
+      const API_URL =
+        import.meta.env.MODE === "development"
+          ? "http://localhost:5000/api"
+          : "https://travelinggenie.com/api";
+      const response = await fetch(`${API_URL}/deleteItinerary`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
