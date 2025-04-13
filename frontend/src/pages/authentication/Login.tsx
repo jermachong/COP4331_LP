@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 interface UserData {
@@ -9,11 +8,14 @@ interface UserData {
   token: string;
 }
 
-const Login: React.FC = () => {
+interface LoginProps {
+  onLoginSuccess: (username: string, userData: UserData) => void;
+}
+
+const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
   const { login: setAuthUser } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -43,9 +45,8 @@ const Login: React.FC = () => {
 
         setAuthUser(userData);
 
-        navigate("/dashboard");
-
-        window.location.reload();
+        // call prop function after login success
+        onLoginSuccess(login, userData);
       } else {
         if (data.needsVerification) {
           setError("Please verify your email before logging in.");

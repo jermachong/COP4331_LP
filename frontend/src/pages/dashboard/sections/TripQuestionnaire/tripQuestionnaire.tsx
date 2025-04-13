@@ -25,19 +25,25 @@ const TripQuestionnaire: React.FC<TripQuestionnaireProps> = ({
   const [showEditModal, setShowEditModal] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [showExitModal, setShowExitModal] = useState(false);
-  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [hasUnsavedChanges] = useState(false);
   const { user } = useAuth();
 
   const navigate = useNavigate();
 
-  // Track unsaved changes
   useEffect(() => {
-    if (itinerary && !isSaved) {
-      setHasUnsavedChanges(true);
-    } else {
-      setHasUnsavedChanges(false);
-    }
-  }, [itinerary, isSaved]);
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (hasUnsavedChanges) {
+        event.preventDefault();
+        event.returnValue = ""; // required for Chrome to trigger alert
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [hasUnsavedChanges]);
 
   const handleSubmit = async (formData: any) => {
     setLoading(true);

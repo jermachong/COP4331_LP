@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { sampleItineraries } from "../../types/sampleItineraries";
 import "./PopularTripsSection.css";
-import { Container, Button, Modal } from "react-bootstrap";
-import { CalendarIcon, UsersIcon, MapPin, CircleDollarSign } from "lucide-react";
+import { Container, Button } from "react-bootstrap";
+import {
+  CalendarIcon,
+  UsersIcon,
+  MapPin,
+  CircleDollarSign,
+} from "lucide-react";
 import LoginSignup from "../authentication/LoginSignup";
 
 const PopularTripsSection: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedTrip, setSelectedTrip] = useState<any>(null);
   const [showLoginSignup, setShowLoginSignup] = useState(false);
-
 
   const handleCardClick = (trip: any) => {
     setSelectedTrip(trip);
@@ -28,7 +32,6 @@ const PopularTripsSection: React.FC = () => {
   const handleCloseLoginSignup = () => {
     setShowLoginSignup(false);
   };
-
 
   return (
     <section className="py-5">
@@ -53,9 +56,7 @@ const PopularTripsSection: React.FC = () => {
                 />
                 <div className="card-body">
                   <h3 className="card-title h5">{trip.destination}</h3>
-                  <p className="card-text text-muted">
-                    ${trip.price}
-                  </p>
+                  <p className="card-text text-muted">${trip.price}</p>
                   <p className="card-text text-muted small">
                     {trip.duration} • {trip.groupSize}
                   </p>
@@ -100,34 +101,48 @@ const PopularTripsSection: React.FC = () => {
                       <div className="d-flex flex-wrap gap-3 mb-2">
                         <div className="d-flex align-items-center me-3">
                           <MapPin size={16} className="me-1" />
-                          <span className="text-muted">{selectedTrip.destination}</span>
+                          <span className="text-muted">
+                            {selectedTrip.destination}
+                          </span>
                         </div>
                         <div className="d-flex align-items-center me-3">
                           <CalendarIcon size={16} className="me-1" />
-                          <span className="text-muted">{selectedTrip.duration}</span>
+                          <span className="text-muted">
+                            {selectedTrip.duration}
+                          </span>
                         </div>
                         <div className="d-flex align-items-center me-3">
                           <UsersIcon size={16} className="me-1" />
-                          <span className="text-muted">{selectedTrip.groupSize}</span>
+                          <span className="text-muted">
+                            {selectedTrip.groupSize}
+                          </span>
                         </div>
                         <div className="d-flex align-items-center me-3">
                           <CircleDollarSign size={16} className="me-1" />
-                          <span className="text-muted">${selectedTrip.price}</span>
+                          <span className="text-muted">
+                            ${selectedTrip.price}
+                          </span>
                         </div>
                       </div>
                       <p className="text-muted">{selectedTrip.description}</p>
 
                       {selectedTrip.tags && (
                         <div className="tags-container mb-3">
-                          {selectedTrip.tags.map((tag: string, index: number) => (
-                            <span key={index} className="tags">
-                              {tag}
-                            </span>
-                          ))}
+                          {selectedTrip.tags.map(
+                            (tag: string, index: number) => (
+                              <span key={index} className="tags">
+                                {tag}
+                              </span>
+                            )
+                          )}
                         </div>
                       )}
 
-                      <Button variant="primary" className="w-100" onClick={handleOpenLoginSignup}>
+                      <Button
+                        variant="primary"
+                        className="w-100"
+                        onClick={handleOpenLoginSignup}
+                      >
                         Sign In to Save Itinerary
                       </Button>
                     </div>
@@ -138,30 +153,42 @@ const PopularTripsSection: React.FC = () => {
                     <div className="mt-2">
                       <h3>Daily Breakdown</h3>
 
-                      {selectedTrip.dailyBreakdown.map((dayObj: any, index: number) => (
-                        <div key={index} className="mb-4">
-                          <h4 className="day-header">Day {dayObj.day}</h4>
+                      {selectedTrip.dailyBreakdown.map(
+                        (dayObj: any, index: number) => (
+                          <div key={index} className="mb-4">
+                            <h4 className="day-header">Day {dayObj.day}</h4>
 
-                          <div className="itinerary">
-                            {dayObj.activities.map((activity: any, i: number) => (
-                              <div key={i} id={`day-${dayObj.day}`} className="itinerary-activity">
-                                <div className="activity-time">{activity.time}</div>
-                                <div className="activity-content">
-                                  <div>
-                                    <div className="activity-name">{activity.activity}</div>
-                                    <em>{activity.location}</em> <br />
-                                    <span>{activity.details}</span> <br />
-                                    <hr className="activity-divider" />
-                                    <span className="cost">
-                                      <strong>Cost:</strong> {activity.cost}
-                                    </span>
+                            <div className="itinerary">
+                              {dayObj.activities.map(
+                                (activity: any, i: number) => (
+                                  <div
+                                    key={i}
+                                    id={`day-${dayObj.day}`}
+                                    className="itinerary-activity"
+                                  >
+                                    <div className="activity-time">
+                                      {activity.time}
+                                    </div>
+                                    <div className="activity-content">
+                                      <div>
+                                        <div className="activity-name">
+                                          {activity.activity}
+                                        </div>
+                                        <em>{activity.location}</em> <br />
+                                        <span>{activity.details}</span> <br />
+                                        <hr className="activity-divider" />
+                                        <span className="cost">
+                                          <strong>Cost:</strong> {activity.cost}
+                                        </span>
+                                      </div>
+                                    </div>
                                   </div>
-                                </div>
-                              </div>
-                            ))}
+                                )
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        )
+                      )}
                     </div>
                   </Container>
                 </div>
@@ -193,7 +220,6 @@ const PopularTripsSection: React.FC = () => {
           </div>
         </div>
       )}
-
     </section>
   );
 };

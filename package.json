@@ -29,7 +29,8 @@
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.9",
     "react-bootstrap-icons": "^1.11.5",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-navigation-prompt": "^1.9.6"
   },
   "devDependencies": {
     "typescript": "^5.8.2"

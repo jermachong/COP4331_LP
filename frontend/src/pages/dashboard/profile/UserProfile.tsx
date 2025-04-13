@@ -1,12 +1,11 @@
-import React, { useState, useEffect, use } from "react";
-import { Container, Form, Button, Modal, ProgressBar } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Form, Button, Modal } from "react-bootstrap";
 import "./UserProfile.css";
 
 const UserProfile: React.FC = () => {
   const [editing, setEditing] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const [profileImage, setProfileImage] = useState<string | null>(null);
   const [firstName, setFirst] = useState("");
   const [lastName, setLast] = useState("");
   const [email, setEmail] = useState("");

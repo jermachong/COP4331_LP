@@ -7,8 +7,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
-import Login from "./pages/authentication/Login";
-import Signup from "./pages/authentication/Signup";
 import VerifyEmail from "./pages/authentication/VerifyEmail";
 import ForgotPassword from "./pages/authentication/ForgotPassword";
 import ResetPassword from "./pages/authentication/ResetPassword";
@@ -22,10 +20,6 @@ import "./App.css";
 import "./styles/themes.css";
 
 import LoginSignup from "./pages/authentication/LoginSignup";
-
-interface LoginSignupProps {
-  onLoginSuccess: (username: string, userData: any) => void;
-}
 
 // Create a new component for the main app content
 const AppContent: React.FC = () => {

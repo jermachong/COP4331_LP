@@ -4,7 +4,7 @@ import UpcomingTripsSection from "./sections/MyTrips/UpcomingTripsSection";
 import TripQuestionnaire from "./sections/TripQuestionnaire/tripQuestionnaire";
 import DashboardHome from "./sections/DashboardHome/ExploreGrid";
 import ExploreSection from "./sections/Explore/ExploreSection";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import SavedTrips from "./sections/SavedTrips/SavedTrips";
 import UserProfile from "./profile/UserProfile";
 import ItineraryPage from "./sections/Itinerary/ItineraryPage";
@@ -16,7 +16,6 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const navigate = useNavigate();
   const location = useLocation();
 
   const handleLogout = () => {

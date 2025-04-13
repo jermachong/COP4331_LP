@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  ClipboardCheckIcon,
-  UsersIcon,
-  CalendarIcon,
-  ThumbsUpIcon,
-} from "lucide-react";
+import { ClipboardCheckIcon, CalendarIcon, ThumbsUpIcon } from "lucide-react";
 
 export const HowItWorksSection: React.FC = () => {
   const steps = [
@@ -38,7 +33,10 @@ export const HowItWorksSection: React.FC = () => {
         </div>
         <div className="row justify-content-center text-center">
           {steps.map((step, index) => (
-            <div key={index} className="col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
+            <div
+              key={index}
+              className="col-md-6 col-lg-3 mb-4 d-flex justify-content-center"
+            >
               <div className="d-flex flex-column align-items-center">
                 <div
                   className="rounded-circle d-flex align-items-center justify-content-center"
