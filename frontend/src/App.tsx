@@ -80,13 +80,8 @@ const AppContent: React.FC = () => {
   };
 
   // Wrapper function for LandingPage's onLogin prop
-  const handleLandingLogin = () => {
-    handleLogin("Guest", {
-      userId: "guest",
-      firstName: "Guest",
-      lastName: "User",
-      token: "guest-token",
-    });
+  const handleLandingLogin = (username: string, userData: any) => {
+    handleLogin(username, userData);
   };
 
   return (

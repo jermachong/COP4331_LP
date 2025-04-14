@@ -5,17 +5,24 @@ import { useNavigate } from "react-router-dom";
 import "./HeroSection.css";
 import LoginSignup from "../authentication/LoginSignup";
 
+interface UserData {
+  userId: string;
+  firstName: string;
+  lastName: string;
+  token: string;
+}
+
 interface HeroSectionProps {
-  onLogin: () => void;
+  onLogin: (username: string, userData: UserData) => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onLogin }) => {
   const [showLoginSignup, setShowLoginSignup] = useState(false);
   const navigate = useNavigate();
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (username: string, userData: UserData) => {
     setShowLoginSignup(false);
-    onLogin();
+    onLogin(username, userData);
     navigate("/Dashboard");
   };
 

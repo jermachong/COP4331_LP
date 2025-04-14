@@ -216,13 +216,13 @@ const TripQuestionnaire: React.FC<TripQuestionnaireProps> = ({
     }
   };
 
-  const handleExit = () => {
-    if (hasUnsavedChanges) {
-      setShowExitModal(true);
-    } else {
-      navigate("/dashboard");
-    }
-  };
+  // const handleExit = () => {
+  //   if (hasUnsavedChanges) {
+  //     setShowExitModal(true);
+  //   } else {
+  //     navigate("/dashboard");
+  //   }
+  // };
 
   const handleConfirmExit = () => {
     setShowExitModal(false);

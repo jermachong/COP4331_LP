@@ -35,7 +35,7 @@ const SavedTrips: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   /**
-   * Fetch the user’s saved itineraries once on mount
+   * Fetch the user's saved itineraries once on mount
    */
   useEffect(() => {
     const fetchSavedTrips = async () => {
