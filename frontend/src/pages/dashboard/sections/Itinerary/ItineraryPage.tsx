@@ -101,11 +101,11 @@ const ItineraryPage: React.FC = () => {
             </div>
             <div className="d-flex align-items-center me-3">
               <CalendarIcon size={16} className="me-1" />
-              <span className="text-muted">{itinerary.duration}</span>
+              <span className="text-muted">{itinerary.duration} days</span>
             </div>
             <div className="d-flex align-items-center me-3">
               <UsersIcon size={16} className="me-1" />
-              <span className="text-muted">{itinerary.groupSize}</span>
+              <span className="text-muted">{itinerary.groupSize} travelers</span>
             </div>
             <div className="d-flex align-items-center me-3">
               <CircleDollarSign size={16} className="me-1" />
