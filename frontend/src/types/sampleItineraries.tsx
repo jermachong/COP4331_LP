@@ -5,8 +5,8 @@ export const sampleItineraries: SampleItinerary[] = [
     id: 1,
     title: "Tokyo Cultural, Culinary, Tech & Shopping Adventure for Two",
     destination: "Tokyo, Japan",
-    duration: "7 days",
-    groupSize: "2 travelers",
+    duration: 7,
+    groupSize: 2,
     description: "A 7-day immersive journey through Tokyo, blending traditional culture, innovative technology, exquisite cuisine, and vibrant shopping experiences for two.",
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
     price: 3000,
@@ -284,8 +284,8 @@ export const sampleItineraries: SampleItinerary[] = [
     "id": 2,
     "title": "Romantic Greek Island Hopping: Santorini & Mykonos",
     "destination": "Santorini & Mykonos, Greece",
-    "duration": "10 days",
-    "groupSize": "4 travelers",
+    "duration": 10,
+    "groupSize": 4,
     "description": "A 10-day romantic escape to the enchanting Greek islands of Santorini and Mykonos, experiencing stunning beaches, rich culture, exquisite cuisine, and unforgettable moments.",
     "image": "https://images.unsplash.com/photo-1688664562000-4c1f7cdb48f8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2FudG9yaW5pJTIwZ3JlZWNlfGVufDB8MHwwfHx8MA%3D%3D0",
     "price": 4500,
@@ -606,8 +606,8 @@ export const sampleItineraries: SampleItinerary[] = [
     "id": 3,
     "title": "Bali Wellness Retreat: Nature, Culture, and Relaxation",
     "destination": "Bali, Indonesia",
-    "duration": "8 days",
-    "groupSize": "3 travelers",
+    "duration": 8,
+    "groupSize": 3,
     "description": "An 8-day journey to Bali, focusing on wellness, immersion in nature, cultural exploration, and deep relaxation. This itinerary is designed to rejuvenate the mind, body, and spirit.",
     "image": "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFsaSUyMGluZG9uZXNpYXxlbnwwfHwwfHx8MA%3D%3D",
     "price": 2500,
@@ -939,8 +939,8 @@ export const sampleItineraries: SampleItinerary[] = [
     "id": 4,
     "title": "Barcelona for Two: Food, Shopping, Nightlife & Relaxation",
     "destination": "Barcelona, Spain",
-    "duration": "8 days",
-    "groupSize": "2 travelers",
+    "duration": 8,
+    "groupSize": 2,
     "description": "A 4-day itinerary balancing culinary delights, shopping experiences, vibrant nightlife, and moments of relaxation in the beautiful city of Barcelona.",
     "image": "https://images.unsplash.com/photo-1591206521749-6f6f8ead79c1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhcmNlbG9uYSUyMHNwYWlufGVufDB8MHwwfHx8MA%3D%3D",
     "price": 1200,
@@ -1056,8 +1056,8 @@ export const sampleItineraries: SampleItinerary[] = [
     "id": 5,
     "title": "Big Apple Adventure for Three",
     "destination": "New York City, USA",
-    "duration": "5 days",
-    "groupSize": "3 travelers",
+    "duration": 5,
+    "groupSize": 3,
     "description": "A 5-day exploration of New York City, balancing iconic landmarks, diverse dining experiences, shopping excursions, outdoor activities, and enriching museum visits for a group of three.",
     "image": "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG5ldyUyMHlvcmslMjBjaXR5fGVufDB8MHwwfHx8MA%3D%3D",
     "price": 2500,
@@ -1302,10 +1302,10 @@ export const sampleItineraries: SampleItinerary[] = [
   },
   {
     "id": 6,
-    "title": "Andean Exploration: Machu Picchu & Cultural Immersion (10 Days)",
+    "title": "Andean Exploration: Machu Picchu & Cultural Immersion",
     "destination": "Machu Picchu, Peru",
-    "duration": "10 days",
-    "groupSize": "5 travelers",
+    "duration": 10,
+    "groupSize": 5,
     "description": "A 10-day journey through Peru, blending the awe-inspiring wonder of Machu Picchu with rich cultural experiences, outdoor adventures, and opportunities for relaxation, tailored for a group of five.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg",
     "price": 3500,
@@ -1568,6 +1568,571 @@ export const sampleItineraries: SampleItinerary[] = [
             "location": "Alejandro Velasco Astete International Airport (CUZ), Cusco",
             "details": "Depart from Cusco.",
             "cost": "$0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Bangkok Cultural Immersion & Exploration",
+    "destination": "Bangkok, Thailand",
+    "duration": 10,
+    "groupSize": 4,
+    "description": "A 10-day itinerary exploring the vibrant city of Bangkok, blending iconic cultural sites, exciting outdoor activities, delicious Thai cuisine, and relaxing experiences for a group of four.",
+    "image": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=3150&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 2000,
+    "tags": ["cultural", "outdoor", "food", "relaxation"],
+    "dailyBreakdown": [
+      {
+        "day": 1,
+        "activities": [
+          {
+            "time": "2:00 PM",
+            "activity": "Arrival at Suvarnabhumi Airport & Transfer to Hotel",
+            "location": "Suvarnabhumi Airport (BKK), Bangkok",
+            "details": "Arrive at Bangkok's main international airport. Meet your pre-arranged private transfer and head to your hotel in a centrally located area like Sukhumvit or Riverside. Check in and settle down.",
+            "cost": "$60 (for private transfer)"
+          },
+          {
+            "time": "5:00 PM",
+            "activity": "Relaxing Thai Massage",
+            "location": "Health Land or a reputable spa near your hotel",
+            "details": "Unwind after your journey with a traditional Thai massage. Choose from various options like full body massage or foot reflexology to ease any travel fatigue.",
+            "cost": "$100 (for 4 people, approx. $25 each)"
+          },
+          {
+            "time": "7:30 PM",
+            "activity": "Welcome Dinner at a Rooftop Restaurant",
+            "location": "Sky Bar at Lebua State Tower or Octave Rooftop Lounge & Bar",
+            "details": "Enjoy your first taste of Bangkok with dinner at a stunning rooftop restaurant offering panoramic city views. Indulge in delicious Thai cuisine while soaking in the vibrant atmosphere.",
+            "cost": "$150 (for 4 people)"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "activities": [
+          {
+            "time": "9:00 AM",
+            "activity": "Visit the Grand Palace & Wat Phra Kaew (Temple of the Emerald Buddha)",
+            "location": "Grand Palace, Phra Nakhon",
+            "details": "Explore Bangkok's most iconic landmark, the magnificent Grand Palace, the former residence of the Thai King. Marvel at the intricate architecture and visit Wat Phra Kaew, home to the revered Emerald Buddha.",
+            "cost": "$200 (for 4 entrance tickets, 500 THB per person)"
+          },
+          {
+            "time": "12:00 PM",
+            "activity": "Lunch near the Grand Palace",
+            "location": "Restaurants around Tha Tien Pier or Maharaj Road",
+            "details": "Enjoy a local Thai lunch at one of the many restaurants near the Grand Palace area. Try dishes like Pad See Ew or Green Curry.",
+            "cost": "$40 (for 4 people)"
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Longtail Boat Trip on the Chao Phraya River & Canals (Khlongs)",
+            "location": "Tha Tien Pier or other riverside piers",
+            "details": "Experience Bangkok from a different perspective with a traditional longtail boat ride along the Chao Phraya River and its intricate network of canals (khlongs). Observe local life and waterside temples.",
+            "cost": "$80 (for a private longtail boat for 1-2 hours)"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "activities": [
+          {
+            "time": "9:00 AM",
+            "activity": "Visit Wat Arun (Temple of Dawn)",
+            "location": "Wat Arun Ratchawararam Ratchawaramahawihan, Arun Amarin Road",
+            "details": "Take a short ferry ride across the Chao Phraya River to visit the stunning Wat Arun, known for its intricate spires and riverside location. Climb the central prang for panoramic views (optional).",
+            "cost": "$20 (for 4 entrance tickets, 50 THB per person) + $4 (ferry for 4)"
+          },
+          {
+            "time": "11:00 AM",
+            "activity": "Explore Wat Pho (Temple of the Reclining Buddha)",
+            "location": "Wat Pho, Sanam Chai Road",
+            "details": "Visit Wat Pho, home to the impressive Reclining Buddha and a renowned traditional Thai massage school. Consider getting a massage here.",
+            "cost": "$80 (for 4 entrance tickets, 200 THB per person) + $100 (optional massages)"
+          },
+          {
+            "time": "6:00 PM",
+            "activity": "Dinner and Drinks at Yaowarat (Chinatown)",
+            "location": "Yaowarat Road",
+            "details": "Immerse yourselves in the vibrant atmosphere of Bangkok's Chinatown. Explore the bustling streets, sample a variety of delicious street food, and enjoy dinner at one of the many local eateries.",
+            "cost": "$60 (for food and drinks for 4 people)"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "activities": [
+          {
+            "time": "10:00 AM",
+            "activity": "Chatuchak Weekend Market (if it's a Saturday or Sunday)",
+            "location": "Chatuchak Weekend Market, Kamphaeng Phet Road",
+            "details": "If your trip includes a weekend, spend the morning exploring the massive Chatuchak Weekend Market. Browse through thousands of stalls selling everything from clothing and handicrafts to food and antiques. (Alternative: Visit a smaller local market like Or Tor Kor Market on other days).",
+            "cost": "$20 (for transport) + variable (for shopping)"
+          },
+          {
+            "time": "1:00 PM",
+            "activity": "Lunch near Chatuchak Market",
+            "location": "Restaurants around Chatuchak or in the Ari neighborhood",
+            "details": "Enjoy lunch at one of the many restaurants near Chatuchak or venture to the trendy Ari neighborhood for more cafe and restaurant options.",
+            "cost": "$45 (for 4 people)"
+          },
+          {
+            "time": "3:00 PM",
+            "activity": "Relaxation at Lumpini Park",
+            "location": "Lumpini Park, Rama IV Road",
+            "details": "Escape the city bustle with a relaxing afternoon at Lumpini Park. Enjoy a stroll, rent a paddleboat on the lake, or simply relax under the shade of the trees.",
+            "cost": "$5 (for paddleboat rental)"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "activities": [
+          {
+            "time": "9:00 AM",
+            "activity": "Day Trip to Ayutthaya (Ancient Capital)",
+            "location": "Ayutthaya Historical Park",
+            "details": "Embark on a day trip to Ayutthaya, the former capital of Siam, a UNESCO World Heritage site. Explore the impressive ruins of ancient temples and palaces. Consider hiring a private van or joining a guided tour.",
+            "cost": "$120 (for private van and driver) + $40 (for 4 entrance fees to historical park)"
+          },
+          {
+            "time": "1:00 PM",
+            "activity": "Lunch in Ayutthaya",
+            "location": "Riverside restaurants in Ayutthaya",
+            "details": "Enjoy lunch at a restaurant in Ayutthaya, perhaps trying local specialties like boat noodles.",
+            "cost": "$50 (for 4 people)"
+          },
+          {
+            "time": "4:00 PM",
+            "activity": "Return to Bangkok & Free Evening",
+            "location": "Travel back to your hotel in Bangkok",
+            "details": "Return to Bangkok in the late afternoon. Enjoy a free evening to relax, explore your neighborhood, or revisit a favorite spot.",
+            "cost": "included in day trip cost"
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "activities": [
+          {
+            "time": "10:00 AM",
+            "activity": "Muay Thai Boxing Match (Optional)",
+            "location": "Rajadamnern Stadium or Lumpinee Stadium",
+            "details": "Experience the thrill of a live Muay Thai (Thai boxing) match. Check the schedules and purchase tickets in advance if interested in witnessing this national sport.",
+            "cost": "$120 (approx. for 4 tickets, depending on seating)"
+          },
+          {
+            "time": "1:00 PM",
+            "activity": "Street Food Tour in a Local Neighborhood",
+            "location": "Areas like Victory Monument or Bang Rak",
+            "details": "Embark on a guided street food tour to discover hidden culinary gems and local favorites in a less touristy neighborhood. Sample a variety of authentic Thai dishes.",
+            "cost": "$100 (for a guided tour for 4 people)"
+          },
+          {
+            "time": "7:00 PM",
+            "activity": "Dinner Cruise on the Chao Phraya River",
+            "location": "Various piers along the Chao Phraya River",
+            "details": "Enjoy a romantic and relaxing dinner cruise along the Chao Phraya River. Admire the illuminated temples and city skyline while savoring a delicious buffet dinner.",
+            "cost": "$200 (for 4 people)"
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "activities": [
+          {
+            "time": "10:00 AM",
+            "activity": "Visit Jim Thompson House",
+            "location": "Jim Thompson House, Kasem San 2 Alley",
+            "details": "Explore the beautiful traditional Thai-style house of American silk entrepreneur Jim Thompson. Learn about his fascinating story and admire the architecture and art collection.",
+            "cost": "$40 (for 4 entrance tickets, 150 THB per person)"
+          },
+          {
+            "time": "12:00 PM",
+            "activity": "Lunch at a Restaurant with Silk Products",
+            "location": "Restaurants near Jim Thompson House",
+            "details": "Enjoy lunch at a restaurant in the area, perhaps one that features silk decorations or products.",
+            "cost": "$50 (for 4 people)"
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Shopping at Siam Paragon or MBK Center",
+            "location": "Siam Paragon and MBK Center, Pathum Wan",
+            "details": "Indulge in some retail therapy at either the upscale Siam Paragon with its luxury brands and aquarium, or the more budget-friendly MBK Center with its wide array of goods.",
+            "cost": "variable (for shopping)"
+          }
+        ]
+      },
+      {
+        "day": 8,
+        "activities": [
+          {
+            "time": "10:00 AM",
+            "activity": "Thai Cooking Class",
+            "location": "Various cooking schools in Bangkok (e.g., Silom Thai Cooking School)",
+            "details": "Learn the art of Thai cooking with a hands-on cooking class. Prepare several classic Thai dishes and enjoy eating your creations for lunch.",
+            "cost": "$160 (for 4 people)"
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Relaxing Afternoon by the Hotel Pool or Spa",
+            "location": "Your hotel or a nearby spa",
+            "details": "Enjoy a leisurely afternoon relaxing by your hotel's pool, getting a spa treatment, or simply unwinding after your cooking class.",
+            "cost": "variable (for spa treatments)"
+          },
+          {
+            "time": "6:00 PM",
+            "activity": "Explore a Night Market (e.g., Train Night Market Ratchada)",
+            "location": "Train Night Market Ratchada (open Tue-Sun)",
+            "details": "Experience the vibrant atmosphere of a Bangkok night market. Browse through stalls selling clothes, accessories, street food, and enjoy live music.",
+            "cost": "$40 (for food and drinks)"
+          }
+        ]
+      },
+      {
+        "day": 9,
+        "activities": [
+          {
+            "time": "10:00 AM",
+            "activity": "Visit the Erawan Shrine",
+            "location": "Erawan Shrine, Ratchaprasong Intersection",
+            "details": "Witness the daily rituals and offerings at the Erawan Shrine, a popular Hindu shrine in the heart of Bangkok.",
+            "cost": "$10 (for offerings)"
+          },
+          {
+            "time": "11:00 AM",
+            "activity": "Explore the shops and cafes in the Siam Square area",
+            "location": "Siam Square",
+            "details": "Wander through the trendy Siam Square area, known for its independent boutiques, cafes, and entertainment options.",
+            "cost": "variable (for shopping and cafes)"
+          },
+          {
+            "time": "6:30 PM",
+            "activity": "Farewell Dinner with Cultural Performance",
+            "location": "Restaurants offering Thai cultural performances (e.g., Sala Rim Naam at Mandarin Oriental)",
+            "details": "Enjoy a special farewell dinner accompanied by traditional Thai music and dance performances for a memorable cultural experience.",
+            "cost": "$250 (for 4 people)"
+          }
+        ]
+      },
+      {
+        "day": 10,
+        "activities": [
+          {
+            "time": "9:00 AM",
+            "activity": "Final Breakfast at the Hotel",
+            "location": "Your hotel in Bangkok",
+            "details": "Enjoy a final breakfast at your hotel.",
+            "cost": "included in hotel stay"
+          },
+          {
+            "time": "11:00 AM",
+            "activity": "Last-Minute Souvenir Shopping or Relaxation",
+            "location": "Nearby markets or your hotel",
+            "details": "Depending on your flight schedule, squeeze in some last-minute souvenir shopping or enjoy some final moments of relaxation at your hotel.",
+            "cost": "variable (for shopping)"
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Transfer to Suvarnabhumi Airport (BKK) for Departure",
+            "location": "Your hotel to Suvarnabhumi Airport",
+            "details": "Your pre-arranged private transfer will take you to the airport for your departure.",
+            "cost": "$60 (for private transfer)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Sydney Solo City Escape",
+    "destination": "Sydney, Australia",
+    "duration": 2,
+    "groupSize": 1,
+    "description": "A 2-day solo adventure in Sydney, balancing shopping, nightlife, cultural experiences at museums, and moments of relaxation.",
+    "image": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 300,
+    "tags": ["shopping", "nightlife", "museums", "relaxation"],
+    "dailyBreakdown": [
+      {
+        "day": 1,
+        "activities": [
+          {
+            "time": "10:00 AM",
+            "activity": "Morning Shopping at Queen Victoria Building (QVB)",
+            "location": "Queen Victoria Building, 455 George St, Sydney",
+            "details": "Explore the grand and historic Queen Victoria Building, a beautiful Victorian-era shopping arcade with a variety of boutiques, cafes, and specialty stores. Enjoy browsing the unique offerings and architectural beauty.",
+            "cost": "$20 (for coffee/snack) + variable (for shopping)"
+          },
+          {
+            "time": "1:00 PM",
+            "activity": "Lunch and Exploration of The Rocks",
+            "location": "The Rocks, Sydney",
+            "details": "Wander through The Rocks, Sydney's historic precinct with cobblestone streets, heritage buildings, and charming shops. Enjoy lunch at one of the many pubs or restaurants with views of the harbour.",
+            "cost": "$30 (for lunch)"
+          },
+          {
+            "time": "3:00 PM",
+            "activity": "Museum of Contemporary Art Australia (MCA)",
+            "location": "Museum of Contemporary Art Australia, 140 George St, The Rocks",
+            "details": "Immerse yourself in modern and contemporary art at the MCA. Explore the diverse exhibitions and enjoy the stunning harbour views from the rooftop cafe.",
+            "cost": "$25 (for general admission)"
+          },
+          {
+            "time": "6:00 PM",
+            "activity": "Pre-Dinner Drinks at a Harbour Bar",
+            "location": "Opera Bar or Glenmore Hotel, The Rocks",
+            "details": "Enjoy pre-dinner drinks at a bar with iconic views of the Sydney Opera House and Harbour Bridge. Relax and soak in the vibrant atmosphere as the evening begins.",
+            "cost": "$30 (for drinks)"
+          },
+          {
+            "time": "8:00 PM",
+            "activity": "Dinner in the CBD or Darling Harbour",
+            "location": "Restaurants in Sydney CBD or Darling Harbour",
+            "details": "Choose from a wide variety of dining options in the central business district or the lively Darling Harbour precinct. Enjoy a delicious meal at a restaurant that suits your taste.",
+            "cost": "$50 (for dinner)"
+          },
+          {
+            "time": "10:00 PM",
+            "activity": "Nightlife in Kings Cross or Oxford Street",
+            "location": "Kings Cross or Oxford Street, Darlinghurst",
+            "details": "Experience Sydney's nightlife scene. Kings Cross offers a more energetic and diverse range of bars and clubs, while Oxford Street is the heart of Sydney's LGBTQ+ scene with lively venues.",
+            "cost": "$40 (for drinks/entry fees)"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "activities": [
+          {
+            "time": "10:00 AM",
+            "activity": "Relaxing Morning at Bondi Beach",
+            "location": "Bondi Beach, Bondi",
+            "details": "Take a bus or train to Bondi Beach and enjoy a relaxing morning. Stroll along the famous Bondi to Coogee coastal walk (partially if time is limited), soak up the sun, or simply enjoy the beach atmosphere.",
+            "cost": "$10 (for transport) + $15 (for optional coffee/snack)"
+          },
+          {
+            "time": "1:00 PM",
+            "activity": "Lunch with Ocean Views at Bondi",
+            "location": "Restaurants or cafes along Campbell Parade, Bondi Beach",
+            "details": "Enjoy lunch at a cafe or restaurant overlooking the iconic Bondi Beach. Savor fresh seafood or casual Australian cuisine while enjoying the ocean breeze.",
+            "cost": "$35 (for lunch)"
+          },
+          {
+            "time": "3:00 PM",
+            "activity": "Shopping at Paddington",
+            "location": "Oxford Street and William Street, Paddington",
+            "details": "Head to the trendy suburb of Paddington, known for its stylish boutiques, designer stores, art galleries, and Victorian terraces. Enjoy browsing unique fashion, homeware, and art.",
+            "cost": "$15 (for transport) + variable (for shopping)"
+          },
+          {
+            "time": "6:00 PM",
+            "activity": "Early Dinner in Paddington",
+            "location": "Restaurants in Paddington",
+            "details": "Enjoy an early dinner in one of Paddington's chic restaurants before heading out for the evening or preparing for departure.",
+            "cost": "$45 (for dinner)"
+          },
+          {
+            "time": "7:30 PM",
+            "activity": "Evening at the Sydney Opera House (Optional Performance or Bar)",
+            "location": "Sydney Opera House, Bennelong Point",
+            "details": "Consider attending a performance at the Sydney Opera House (check schedules and book in advance) for a cultural experience. Alternatively, enjoy drinks at the Opera Bar for a final iconic view.",
+            "cost": "$80+ (for performance ticket) or $30 (for drinks)"
+          },
+          {
+            "time": "9:30 PM",
+            "activity": "Relaxing Evening or Further Exploration (depending on departure)",
+            "location": "Your hotel or a nearby area",
+            "details": "Enjoy a relaxing evening at your hotel or, depending on your departure time, explore a bit more of the city at your own pace.",
+            "cost": "$0 - variable"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Honolulu Fun for Four: Adventure, Relaxation & More",
+    "destination": "Honolulu, Hawaii",
+    "duration": 5,
+    "groupSize": 4,
+    "description": "A 5-day itinerary in Honolulu, blending outdoor adventures, shopping excursions, vibrant nightlife, and relaxing moments for a group of four.",
+    "image": "https://images.unsplash.com/photo-1636522302567-032111e4aff4?q=80&w=2968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 2500,
+    "tags": ["shopping", "nightlife", "outdoor", "relaxation"],
+    "dailyBreakdown": [
+      {
+        "day": 1,
+        "activities": [
+          {
+            "time": "2:00 PM",
+            "activity": "Arrival at Honolulu International Airport (HNL) & Hotel Check-in",
+            "location": "Daniel K. Inouye International Airport (HNL), Honolulu",
+            "details": "Arrive at Honolulu Airport. Take a pre-booked shuttle or taxi to your hotel in Waikiki. Check in and settle into your rooms.",
+            "cost": "$80 (for round-trip airport shuttle for 4)"
+          },
+          {
+            "time": "4:00 PM",
+            "activity": "Relaxing Stroll on Waikiki Beach",
+            "location": "Waikiki Beach, Honolulu",
+            "details": "Take a leisurely walk along the iconic Waikiki Beach. Enjoy the sunset views, feel the sand between your toes, and get acquainted with the surroundings.",
+            "cost": "$0"
+          },
+          {
+            "time": "7:00 PM",
+            "activity": "Welcome Dinner at a Beachfront Restaurant",
+            "location": "Restaurants along Kalakaua Avenue or near the beach in Waikiki",
+            "details": "Enjoy your first Hawaiian meal at a restaurant with ocean views. Sample local seafood or other island-inspired dishes.",
+            "cost": "$120 (for 4 people)"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "activities": [
+          {
+            "time": "9:00 AM",
+            "activity": "Diamond Head Hike",
+            "location": "Diamond Head State Monument, Honolulu",
+            "details": "Embark on a moderately challenging hike to the summit of Diamond Head crater for panoramic views of Waikiki, Honolulu, and the coastline. Book your reservation online in advance.",
+            "cost": "$20 (for park entry and parking for one car) + $10 (for online reservation fee)"
+          },
+          {
+            "time": "12:00 PM",
+            "activity": "Lunch at a Local Eatery near Diamond Head",
+            "location": "Restaurants and food trucks near Diamond Head or in Kaimuki",
+            "details": "Grab a casual lunch at a local spot after your hike. Try some Hawaiian plate lunch or other regional specialties.",
+            "cost": "$60 (for 4 people)"
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Afternoon Shopping at Ala Moana Center",
+            "location": "Ala Moana Center, Honolulu",
+            "details": "Spend the afternoon exploring Ala Moana Center, the world's largest open-air shopping mall. Browse a wide variety of department stores, boutiques, and local shops.",
+            "cost": "$10 (for transport) + variable (for shopping)"
+          },
+          {
+            "time": "7:00 PM",
+            "activity": "Dinner at a Restaurant in Ala Moana or nearby",
+            "location": "Various restaurants within or near Ala Moana Center",
+            "details": "Enjoy dinner at one of the many dining options at Ala Moana Center, catering to various tastes and cuisines.",
+            "cost": "$100 (for 4 people)"
+          },
+          {
+            "time": "9:00 PM",
+            "activity": "Nightlife in Waikiki",
+            "location": "Bars and clubs along Kalakaua Avenue and Kuhio Avenue",
+            "details": "Experience Waikiki's nightlife scene. Choose from a range of bars, lounges, and clubs offering live music, cocktails, and dancing.",
+            "cost": "$80 (for drinks/cover charges)"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "activities": [
+          {
+            "time": "9:00 AM",
+            "activity": "Pearl Harbor Visit",
+            "location": "Pearl Harbor National Memorial, Honolulu",
+            "details": "Visit the historic Pearl Harbor National Memorial to learn about the events of December 7, 1941. See the USS Arizona Memorial and explore the museums and exhibits. Book tickets online in advance to secure your spot.",
+            "cost": "$40 (for optional audio tour or USS Bowfin Submarine Museum & Park admission)"
+          },
+          {
+            "time": "12:00 PM",
+            "activity": "Lunch near Pearl Harbor",
+            "location": "Restaurants in Aiea or near the Pearl Harbor visitor center",
+            "details": "Have lunch at a local restaurant near Pearl Harbor before continuing your day.",
+            "cost": "$50 (for 4 people)"
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Relaxation at Hanauma Bay Nature Preserve (Snorkeling)",
+            "location": "Hanauma Bay Nature Preserve, Honolulu",
+            "details": "Spend the afternoon snorkeling in the beautiful Hanauma Bay, known for its calm waters and diverse marine life. Make a reservation online in advance as entry is limited. Note: Closed on Tuesdays.",
+            "cost": "$100 (for park entry for 4, $25 per person) + $40 (for snorkel gear rental)"
+          },
+          {
+            "time": "6:00 PM",
+            "activity": "Happy Hour and Appetizers in Waikiki",
+            "location": "Various bars and restaurants in Waikiki offering happy hour specials",
+            "details": "Enjoy discounted drinks and appetizers during happy hour at one of Waikiki's many bars.",
+            "cost": "$60 (for drinks and appetizers)"
+          },
+          {
+            "time": "8:00 PM",
+            "activity": "Sunset Catamaran Cruise (Optional)",
+            "location": "Departs from Kewalo Basin Harbor or Waikiki Beach",
+            "details": "Consider a relaxing sunset catamaran cruise along the Waikiki coastline, often including drinks and light snacks.",
+            "cost": "$200 (approx. for 4 people)"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "activities": [
+          {
+            "time": "9:00 AM",
+            "activity": "Surfing Lesson at Waikiki Beach",
+            "location": "Waikiki Beach (various surf schools)",
+            "details": "Experience the thrill of surfing with a beginner's lesson at the famous Waikiki Beach. Several surf schools offer group lessons for all skill levels.",
+            "cost": "$200 (approx. for a group surf lesson for 4)"
+          },
+          {
+            "time": "12:00 PM",
+            "activity": "Casual Lunch near Waikiki Beach",
+            "location": "Food trucks or casual eateries near Waikiki Beach",
+            "details": "Grab a quick and tasty lunch from a food truck or a casual restaurant near the beach.",
+            "cost": "$50 (for 4 people)"
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Shopping at International Market Place",
+            "location": "International Market Place, Waikiki",
+            "details": "Explore the revitalized International Market Place, an open-air shopping center with a mix of luxury retailers, local boutiques, and dining options centered around a historic banyan tree.",
+            "cost": "$10 (for transport) + variable (for shopping)"
+          },
+          {
+            "time": "6:00 PM",
+            "activity": "Polynesian Cultural Center Luau (Full Evening)",
+            "location": "Polynesian Cultural Center, Laie (approx. 1-hour drive from Waikiki)",
+            "details": "Immerse yourselves in the cultures of the Pacific Islands with a visit to the Polynesian Cultural Center. Enjoy interactive villages, demonstrations, a luau feast, and a spectacular evening show. Factor in transportation time.",
+            "cost": "$400 (approx. for 4 people, including transportation and luau package)"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "activities": [
+          {
+            "time": "9:00 AM",
+            "activity": "Relaxing Morning by the Hotel Pool or Beach",
+            "location": "Your hotel pool or Waikiki Beach",
+            "details": "Enjoy a final relaxing morning in Honolulu. Lounge by the pool, soak up the sun on the beach, or enjoy a leisurely breakfast.",
+            "cost": "$0"
+          },
+          {
+            "time": "11:00 AM",
+            "activity": "Souvenir Shopping along Kalakaua Avenue",
+            "location": "Shops along Kalakaua Avenue, Waikiki",
+            "details": "Do some last-minute souvenir shopping along the main street of Waikiki, browsing for Hawaiian crafts, apparel, and gifts.",
+            "cost": "variable (for shopping)"
+          },
+          {
+            "time": "1:00 PM",
+            "activity": "Farewell Lunch with Ocean Views",
+            "location": "Restaurants with ocean views in Waikiki",
+            "details": "Enjoy a final lunch in Honolulu with beautiful views of the Pacific Ocean before heading to the airport.",
+            "cost": "$80 (for 4 people)"
+          },
+          {
+            "time": "4:00 PM",
+            "activity": "Transfer to Honolulu International Airport (HNL) for Departure",
+            "location": "Your hotel in Waikiki to Honolulu Airport",
+            "details": "Take a pre-booked shuttle or taxi from your hotel to the airport for your departure.",
+            "cost": "$80 (for round-trip airport shuttle included from Day 1)"
           }
         ]
       }

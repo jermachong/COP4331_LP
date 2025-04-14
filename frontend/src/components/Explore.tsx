@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 
 const Explore: React.FC = () => {
   const navigate = useNavigate();
-  const itineraries = sampleItineraries;
+  const itineraries = sampleItineraries.slice(0, 6);
 
   const handleViewItinerary = (itinerary: SampleItinerary) => {
     navigate("/itinerary", {

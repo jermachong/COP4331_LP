@@ -49,7 +49,7 @@ const ItineraryPage: React.FC = () => {
     try {
       // get user id
       const user = JSON.parse(localStorage.getItem("user") || "{}");
-      const userId = user.UserId;
+      const userId = user.userId;
       const jwtToken = JSON.parse(localStorage.getItem("jwtToken") || '""');
 
       // send to backend
@@ -62,6 +62,7 @@ const ItineraryPage: React.FC = () => {
       });
 
       const data = await response.json();
+      
       if (response.ok) {
         console.log("Itinerary saved successfully:", data);
         alert("Itinerary saved successfully!");

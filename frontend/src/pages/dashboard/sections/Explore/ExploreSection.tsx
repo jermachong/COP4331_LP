@@ -143,11 +143,11 @@ const ExploreSection: React.FC = () => {
                 <div className="d-flex gap-3 mb-3">
                   <div className="d-flex align-items-center text-muted">
                     <Calendar size={16} className="me-1" />
-                    <small>{itinerary.duration}</small>
+                    <small>{itinerary.duration} days </small>
                   </div>
                   <div className="d-flex align-items-center text-muted">
                     <Users size={16} className="me-1" />
-                    <small>{itinerary.groupSize}</small>
+                    <small>{itinerary.groupSize} travelers </small>
                   </div>
                 </div>
                 <p className="card-text text-muted small mb-3 flex-grow-1 mt-auto">
