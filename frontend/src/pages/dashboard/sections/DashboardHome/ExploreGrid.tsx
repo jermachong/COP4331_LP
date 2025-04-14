@@ -1,5 +1,4 @@
 import React from "react";
-import TripCard from "./TripCard";
 import { PlusIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Explore from "../../../../components/Explore";
@@ -13,29 +12,6 @@ const ExploreSection: React.FC = () => {
   const handleCreateNewTrip = () => {
     navigate("/tripQuestionnaire");
   };
-
-  const upcomingTrips = [
-    {
-      id: 101,
-      title: "Weekend in Paris",
-      description: "Quick getaway to the city of lights",
-      image:
-        "https://images.unsplash.com/photo-1550340499-a6c60fc8287c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFyaXN8ZW58MHwwfDB8fHww",
-      startDate: "Nov 10, 2023",
-      endDate: "Nov 13, 2023",
-      companions: 2,
-    },
-    {
-      id: 102,
-      title: "Summer in Rome",
-      description: "Exploring the ancient city with friends",
-      image:
-        "https://images.unsplash.com/photo-1542820229-081e0c12af0b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cm9tZXxlbnwwfDB8MHx8fDA%3D",
-      startDate: "Jul 5, 2023",
-      endDate: "Jul 15, 2023",
-      companions: 4,
-    },
-  ];
 
   return (
     <div className="container py-4">
