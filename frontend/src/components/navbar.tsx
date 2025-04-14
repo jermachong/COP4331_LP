@@ -19,7 +19,7 @@ const NavigationBar = forwardRef<NavigationBarRef, NavigationBarProps>(
   ({ isLoggedIn, onLogout }, ref) => {
     const [showLogin, setShowLogin] = useState(false);
     const [showSignup, setShowSignup] = useState(false);
-    const [setUser] = useState<any>(null);
+    const [, setUser] = useState<any>(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const navigate = useNavigate();
 

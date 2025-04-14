@@ -1,20 +1,24 @@
 import { useLocation } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import {
-  CalendarIcon,
-  UsersIcon,
+  Calendar as CalendarIcon,
+  Users as UsersIcon,
   MapPin,
   CircleDollarSign,
+  Heart,
 } from "lucide-react";
 import "./ItineraryPage.css";
+
+const FALLBACK_IMG =
+  "https://images.unsplash.com/photo-1550340499-a6c60fc8287c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFyaXN8ZW58MHwwfDB8fHww";
 
 interface Activity {
   time: string;
   activity: string;
   location: string;
   details: string;
-  cost: string;
-  tags: string;
+  cost: string | number;
+  tags?: string;
 }
 
 interface Day {
@@ -22,13 +26,20 @@ interface Day {
   activities: Activity[];
 }
 
-const ItineraryPage = () => {
+const formatPrice = (value: number | string) => {
+  const n = Number(String(value).replace(/[^0-9.]+/g, ""));
+  return isNaN(n) ? value : `$${n.toLocaleString()}`;
+};
+
+const ItineraryPage: React.FC = () => {
   const { state } = useLocation();
   const itinerary = state?.tripData;
+  const isSaved = state?.isSaved === true;
 
   if (!itinerary) {
     return <div className="container py-5">No itinerary data found.</div>;
   }
+
   const API_URL =
     import.meta.env.MODE === "development"
       ? "http://localhost:5000/api"
@@ -50,13 +61,13 @@ const ItineraryPage = () => {
         body: JSON.stringify({ userId, itinerary, jwtToken }),
       });
 
-      // server response
       const data = await response.json();
       if (response.ok) {
         console.log("Itinerary saved successfully:", data);
         alert("Itinerary saved successfully!");
       } else {
         console.error(data.error);
+        alert(data.error || "Unable to save itinerary.");
       }
     } catch (error) {
       console.error("Error saving itinerary:", error);
@@ -67,10 +78,10 @@ const ItineraryPage = () => {
   return (
     <div className="container py-4">
       {/* Header Section */}
-      <div className="itinerary-header">
+      <div className="itinerary-header row g-4 mb-4">
         <div className="col-md-6">
           <img
-            src={itinerary.image}
+            src={itinerary.image?.trim() || FALLBACK_IMG}
             alt={itinerary.title}
             style={{
               width: "100%",
@@ -81,8 +92,8 @@ const ItineraryPage = () => {
           />
         </div>
         <div className="col-md-6 d-flex flex-column justify-content-center">
-          <h1 className="itinerary-title">{itinerary.title}</h1>
-          <div className="d-flex flex-wrap gap-3 mb-2 ">
+          <h1 className="itinerary-title mb-3">{itinerary.title}</h1>
+          <div className="d-flex flex-wrap gap-3 mb-3">
             <div className="d-flex align-items-center me-3">
               <MapPin size={16} className="me-1" />
               <span className="text-muted">{itinerary.destination}</span>
@@ -97,13 +108,13 @@ const ItineraryPage = () => {
             </div>
             <div className="d-flex align-items-center me-3">
               <CircleDollarSign size={16} className="me-1" />
-              <span className="text-muted">{itinerary.price}</span>
+              <span className="text-muted">{formatPrice(itinerary.price)}</span>
             </div>
           </div>
-          <p className="text-muted"> {itinerary.description} </p>
+          <p className="text-muted">{itinerary.description}</p>
 
           {itinerary.tags && (
-            <div className="tags-container">
+            <div className="tags-container mb-3">
               {itinerary.tags.map((tag: string, index: number) => (
                 <span key={index} className="tags">
                   {tag}
@@ -112,49 +123,49 @@ const ItineraryPage = () => {
             </div>
           )}
 
-          <Button variant="primary" className="w-100" onClick={handleSaveTrip}>
-            Save Itinerary
-          </Button>
+          {!isSaved && (
+            <Button
+              variant="primary"
+              className="w-100"
+              onClick={handleSaveTrip}
+            >
+              <Heart className="me-1" size={16} /> Save Itinerary
+            </Button>
+          )}
         </div>
       </div>
 
       {/* Daily Breakdown Section */}
       <Container className="py-4">
-        <div className="mt-2">
-          <h3>Daily Breakdown</h3>
-
-          {itinerary.dailyBreakdown.map((dayObj: Day, index: number) => (
-            <div key={index} className="mb-4">
-              <h4 className="day-header">Day {dayObj.day}</h4>
-
-              <div className="itinerary">
-                {dayObj.activities.map((activity: Activity, i: number) => (
-                  <div
-                    key={i}
-                    id={`day-${dayObj.day}`}
-                    className="itinerary-activity"
-                  >
-                    <div className="activity-time"> {activity.time} </div>
-                    <div className="activity-content">
-                      <div activity-content>
-                        <div className="activity-name">
-                          {" "}
-                          {activity.activity}{" "}
-                        </div>
-                        <em>{activity.location}</em> <br />
-                        <span>{activity.details}</span> <br />
-                        <hr className="activity-divider" />
-                        <span className="cost">
-                          <strong>Cost:</strong> {activity.cost}
-                        </span>
-                      </div>
+        <h3 className="mb-4">Daily Breakdown</h3>
+        {itinerary.dailyBreakdown.map((dayObj: Day, index: number) => (
+          <div key={index} className="mb-4">
+            <h4 className="day-header mb-3">Day {dayObj.day}</h4>
+            <div className="itinerary">
+              {dayObj.activities.map((activity: Activity, i: number) => (
+                <div
+                  key={i}
+                  id={`day-${dayObj.day}`}
+                  className="itinerary-activity mb-3"
+                >
+                  <div className="activity-time">{activity.time}</div>
+                  <div className="activity-content">
+                    <div className="activity-name fw-semibold">
+                      {activity.activity}
                     </div>
+                    <em>{activity.location}</em>
+                    <br />
+                    <span>{activity.details}</span>
+                    <hr className="activity-divider my-2" />
+                    <span className="cost">
+                      <strong>Cost:</strong> {formatPrice(activity.cost)}
+                    </span>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </Container>
     </div>
   );

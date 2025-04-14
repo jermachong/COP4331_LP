@@ -17,16 +17,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
 
   const navigation = [
     { name: "Home", href: "/dashboard" },
-    { name: "My Trips", href: "/upcoming" },
     { name: "Saved Trips", href: "/saved" },
     { name: "Plan a Trip", href: "/tripQuestionnaire" },
     { name: "Explore", href: "/explore" },
   ];
 
   const isActive = (path: string) => {
-    if (path === "/dashboard") {
-      return location.pathname === path;
-    }
     return location.pathname === path;
   };
 
@@ -105,21 +101,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
         {/* Profile Section */}
         <div className="border-top p-3">
           <div className="d-flex flex-column align-items-center">
-            {/* Profile Picture 
-            <div
-              className="rounded-circle bg-secondary mb-2"
-              style={{ width: "64px", height: "64px" }}
-            >
-              <div className="d-flex align-items-center justify-content-center h-100 text-white">
-                <i className="bi bi-person-fill fs-4"></i>
-              </div>
-            </div> */}
-
-            {/* User Info */}
-            <h6 className="mb-1">{user?.firstName} {user?.lastName}</h6>
+            <h6 className="mb-1">
+              {user?.firstName} {user?.lastName}
+            </h6>
             <small className="text-muted mb-3">{user?.email}</small>
 
-            {/* Buttons */}
             <div className="d-grid gap-2 w-100">
               <Link to="/profile" className="btn btn-outline-primary btn-sm">
                 Profile

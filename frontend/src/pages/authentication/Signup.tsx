@@ -30,7 +30,7 @@ const Signup: React.FC<SignupProps> = ({ onSignupSuccess }) => {
     const API_URL =
       import.meta.env.MODE === "development"
         ? "http://localhost:5000/api"
-        : "https://travelinggenie.com/api";
+        : "http://travelinggenie.com:5000/api";
 
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;

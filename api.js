@@ -299,6 +299,7 @@ exports.setApp = function (app, dbInstance) {
 
   // Update login endpoint
   app.post("/api/login", async (req, res) => {
+    console.log("POST /api/login", req.body);
 
     // incoming: login, password
     // outgoing: userId, firstName, lastName, token, error message
@@ -360,9 +361,8 @@ exports.setApp = function (app, dbInstance) {
 
   // This endpoint is used to add a new itinerary to the database
   app.post("/api/addItinerary", async (req, res, next) => {
-  
-    // incoming: userId, itineraryNode, 
-    const { userId, itinerary } = req.body;    
+    // incoming: userId, itineraryNode,
+    const { userId, itinerary } = req.body;
 
     // check for missing fields in the request body. If any are missing, it sends a 400 error response
     if (!userId || !itinerary) {
@@ -401,7 +401,6 @@ exports.setApp = function (app, dbInstance) {
 
   // This endpoint is used to delete an itinerary from the database
   app.post("/api/deleteItinerary", async (req, res, next) => {
-
     // incoming: userId, eventId, jwtToken
     // outgoing: success/error message
     const { userId, itineraryId } = req.body;
@@ -448,7 +447,6 @@ exports.setApp = function (app, dbInstance) {
 
   //This function is used to search for events in the Events collection
   app.post("/api/searchItinerary", async (req, res, next) => {
-
     // incoming: userId, (optional) date, location, time
     // outgoing: list of matching events or error message
     const { userId, search } = req.body;
@@ -482,7 +480,6 @@ exports.setApp = function (app, dbInstance) {
 
   // This endpoint is used to edit user information
   app.post("/api/editUser", async (req, res, next) => {
-
     // incoming: userId, newfirstName, newlastName, newEmail
     // outgoing: success/error message
     const { userId, firstName, lastName, email, password, jwtToken } = req.body;
@@ -564,7 +561,6 @@ exports.setApp = function (app, dbInstance) {
   });
 
   app.post("/api/editItinerary", async (req, res, next) => {
-
     // incoming: userId, itineraryID, itineraryNode
     // outgoing: success/error message
     const { userId, itineraryId, newItinerary, jwtToken } = req.body;
