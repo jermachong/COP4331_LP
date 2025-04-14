@@ -5,8 +5,15 @@ import HowItWorksSection from "./HowItWorksSection";
 import PopularTripsSection from "./PopularTripsSection";
 import CTASection from "./CTASection";
 
+interface UserData {
+  userId: string;
+  firstName: string;
+  lastName: string;
+  token: string;
+}
+
 interface LandingPageProps {
-  onLogin: () => void;
+  onLogin: (username: string, userData: UserData) => void;
 }
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {

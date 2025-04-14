@@ -43,7 +43,7 @@ const ItineraryPage: React.FC = () => {
   const API_URL =
     import.meta.env.MODE === "development"
       ? "http://localhost:5000/api"
-      : "https://travelinggenie.com/api";
+      : "http://travelinggenie.com/api";
 
   const handleSaveTrip = async () => {
     try {

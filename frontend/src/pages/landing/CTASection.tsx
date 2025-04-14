@@ -2,16 +2,23 @@ import React, { useState } from "react";
 import styles from "./CTASection.module.css";
 import LoginSignup from "../authentication/LoginSignup";
 
+interface UserData {
+  userId: string;
+  firstName: string;
+  lastName: string;
+  token: string;
+}
+
 interface CTASectionProps {
-  onLogin: () => void;
+  onLogin: (username: string, userData: UserData) => void;
 }
 
 const CTASection: React.FC<CTASectionProps> = ({ onLogin }) => {
   const [showLoginSignup, setShowLoginSignup] = useState(false);
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (username: string, userData: UserData) => {
     setShowLoginSignup(false);
-    onLogin();
+    onLogin(username, userData);
   };
 
   return (

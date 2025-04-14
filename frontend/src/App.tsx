@@ -58,6 +58,11 @@ const AppContent: React.FC = () => {
   }, []); // Empty dependency array means this only runs once on mount
 
   const handleLogin = (username: string, userData: any) => {
+    if (!userData || !userData.userId || !userData.token) {
+      console.error("Invalid user data received");
+      return;
+    }
+
     setUser(username);
     setIsLoggedIn(true);
     // Store the user data as received from the server
@@ -75,13 +80,8 @@ const AppContent: React.FC = () => {
   };
 
   // Wrapper function for LandingPage's onLogin prop
-  const handleLandingLogin = () => {
-    handleLogin("Guest", {
-      userId: "guest",
-      firstName: "Guest",
-      lastName: "User",
-      token: "guest-token",
-    });
+  const handleLandingLogin = (username: string, userData: any) => {
+    handleLogin(username, userData);
   };
 
   return (
