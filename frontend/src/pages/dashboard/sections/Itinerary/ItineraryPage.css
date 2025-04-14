@@ -25,7 +25,7 @@
     font-weight: 600;
     margin-bottom: 1rem;
     font-size: 1.25rem;
-    color: #333;
+    color: var(--text-primary);
 }
 
 /*.activity-time {
@@ -75,6 +75,7 @@
     background-color: #f8f9fa;
     padding: 1rem;
     border-radius: 8px;
+    color: var(--text-primary);
 }
 
 .cost {
@@ -91,7 +92,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
     align-items: center;
 }
 
