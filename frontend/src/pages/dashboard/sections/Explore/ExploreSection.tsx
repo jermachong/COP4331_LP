@@ -162,7 +162,7 @@ const ExploreSection: React.FC = () => {
                     ))}
                   </div>
                   <div className="text-end">
-                    <div className="h5 mb-0">{itinerary.price}</div>
+                    <div className="h5 mb-0">${itinerary.price}</div>
                   </div>
                 </div>
               </div>
