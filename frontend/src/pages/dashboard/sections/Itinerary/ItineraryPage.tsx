@@ -40,11 +40,6 @@ const ItineraryPage: React.FC = () => {
     return <div className="container py-5">No itinerary data found.</div>;
   }
 
-  const API_URL =
-    import.meta.env.MODE === "development"
-      ? "http://localhost:5000/api"
-      : "http://travelinggenie.com/api";
-
   const handleSaveTrip = async () => {
     try {
       // get user id
@@ -53,6 +48,10 @@ const ItineraryPage: React.FC = () => {
       const jwtToken = JSON.parse(localStorage.getItem("jwtToken") || '""');
 
       // send to backend
+      const API_URL =
+        import.meta.env.MODE === "development"
+          ? "http://localhost:5000/api"
+          : "http://travelinggenie.com:5000/api";
       const response = await fetch(`${API_URL}/addItinerary`, {
         method: "POST",
         headers: {

@@ -34,7 +34,7 @@ const SavedTripsPreview: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   /**
-   * Fetch the user’s saved itineraries once on mount
+   * Fetch the user's saved itineraries once on mount
    */
   useEffect(() => {
     const fetchSavedTrips = async () => {
@@ -47,8 +47,8 @@ const SavedTripsPreview: React.FC = () => {
       try {
         const API_URL =
           import.meta.env.MODE === "development"
-            ? "http://localhost:5000/api"
-            : "https://travelinggenie.com/api";
+            ? "/api"
+            : "http://travelinggenie.com:5000/api";
 
         const res = await fetch(`${API_URL}/searchItinerary`, {
           method: "POST",
@@ -116,7 +116,7 @@ const SavedTripsPreview: React.FC = () => {
       const API_URL =
         import.meta.env.MODE === "development"
           ? "http://localhost:5000/api"
-          : "http://travelinggenie.com/api";
+          : "http://travelinggenie.com:5000/api";
 
       const res = await fetch(`${API_URL}/deleteItinerary`, {
         method: "POST",

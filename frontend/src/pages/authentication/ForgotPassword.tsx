@@ -15,7 +15,12 @@ const ForgotPassword: React.FC = () => {
     setMessage("");
 
     try {
-      const response = await fetch("/api/forgot-password", {
+      const API_URL =
+        import.meta.env.MODE === "development"
+          ? "http://localhost:5000/api"
+          : "http://travelinggenie.com:5000/api";
+
+      const response = await fetch(`${API_URL}/forgot-password, `, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

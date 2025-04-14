@@ -75,7 +75,12 @@ const TripQuestionnaire: React.FC<TripQuestionnaireProps> = ({
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
       try {
-        const response = await fetch("/api/generate-itinerary", {
+        const API_URL =
+          import.meta.env.MODE === "development"
+            ? "http://localhost:5000/api"
+            : "http://travelinggenie.com:5000/api";
+
+        const response = await fetch(`${API_URL}/generate-itinerary`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -248,7 +253,12 @@ const TripQuestionnaire: React.FC<TripQuestionnaireProps> = ({
     }
 
     try {
-      const response = await fetch("/api/addItinerary", {
+      const API_URL =
+        import.meta.env.MODE === "development"
+          ? "http://localhost:5000/api"
+          : "http://travelinggenie.com:5000/api";
+
+      const response = await fetch(`${API_URL}/addItinerary `, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

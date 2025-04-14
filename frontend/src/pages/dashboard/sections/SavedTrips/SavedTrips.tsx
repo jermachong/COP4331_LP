@@ -44,19 +44,19 @@ const SavedTrips: React.FC = () => {
         setLoading(false);
         return;
       }
-
       try {
         const API_URL =
           import.meta.env.MODE === "development"
             ? "http://localhost:5000/api"
-            : "http://travelinggenie.com/api";
+            : "http://travelinggenie.com:5000/api";
 
         const res = await fetch(`${API_URL}/searchItinerary`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
-            userId: Number(user.userId),
-            jwtToken: user.token,
+            userId: user.userId,
           }),
         });
 
@@ -119,7 +119,7 @@ const SavedTrips: React.FC = () => {
       const API_URL =
         import.meta.env.MODE === "development"
           ? "http://localhost:5000/api"
-          : "http://travelinggenie.com/api";
+          : "http://travelinggenie.com:5000/api";
 
       const res = await fetch(`${API_URL}/deleteItinerary`, {
         method: "POST",
