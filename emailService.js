@@ -9,9 +9,28 @@ const generateToken = () => {
   return crypto.randomBytes(32).toString("hex");
 };
 
+const buildFrontendUrl = (path) => {
+  const base =
+    process.env.NODE_ENV === "production"
+      ? "https://travelinggenie.com"
+      : "http://localhost:5173";
+  return `${base}${path}`;
+};
+
 // Send verification email
 const sendVerificationEmail = async (email, token) => {
-  const verificationUrl = `${process.env.FRONTEND_URL}/verify-email?token=${token}`;
+  // Determine the frontend URL based on the environment
+  const frontendUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://travelinggenie.com"
+      : "http://localhost:5173";
+
+  console.log("[DEBUG] Environment:", process.env.NODE_ENV);
+  console.log("[DEBUG] Frontend URL:", frontendUrl);
+  console.log("[DEBUG] Token:", token);
+
+  const verificationUrl = `${frontendUrl}/verify-email/${token}`;
+  console.log("[DEBUG] Full verification URL:", verificationUrl);
 
   const msg = {
     to: email,
@@ -39,7 +58,7 @@ const sendVerificationEmail = async (email, token) => {
 
 // Send password reset email
 const sendPasswordResetEmail = async (email, token) => {
-  const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${token}`;
+  const resetUrl = buildFrontendUrl(`/reset-password/${token}`);
 
   const msg = {
     to: email,

@@ -40,7 +40,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
           userId: data.userId.toString(),
           firstName: data.firstName,
           lastName: data.lastName,
-          token: data.token,
+          token: data.userId.toString(),
         };
 
         setAuthUser(userData);

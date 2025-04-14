@@ -12,7 +12,7 @@ interface SignupProps {
   onSignupSuccess: (username: string, userData: UserData) => void;
 }
 
-const Signup: React.FC<SignupProps> = ({ onSignupSuccess }) => {
+const Signup: React.FC<SignupProps> = ({}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -58,27 +58,15 @@ const Signup: React.FC<SignupProps> = ({ onSignupSuccess }) => {
           "Registration successful! Please check your email to verify your account."
         );
 
-        const userData: UserData = {
-          userId: data.userId,
-          firstName,
-          lastName,
-          token: data.token,
-        };
-
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ username: login, ...userData })
-        );
-
-        onSignupSuccess(login, userData);
-
+        // Clear form fields
         setFirstName("");
         setLastName("");
         setEmail("");
         setLogin("");
         setPassword("");
 
-        setTimeout(() => navigate("/"), 5000);
+        // Navigate to verify email pending page
+        setTimeout(() => navigate("/verify-email-pending"), 3000);
       }
     } catch (err) {
       setError("An error occurred during signup.");
