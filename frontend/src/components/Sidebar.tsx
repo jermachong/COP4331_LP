@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
@@ -21,6 +21,49 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
     { name: "Saved Trips", href: "/saved" },
     { name: "Explore", href: "/explore" },
   ];
+
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  const API_URL =
+    import.meta.env.MODE === "development"
+      ? "http://localhost:5000/api"
+      : "http://travelinggenie.com:5000/api";
+
+  useEffect(() => {
+    // get user data from the backend
+    const getUserData = async () => {
+      try {
+        // get user id
+        const user = JSON.parse(localStorage.getItem("user") || "{}");
+        console.log("Local user:", user);
+        const userId = user.userId;
+
+        // send to backend
+        const response = await fetch(`${API_URL}/get-user`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setUserData({
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    getUserData();
+  }, []);
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -71,9 +114,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
           <button
             className="btn btn-link p-0"
             onClick={toggleTheme}
-            aria-label={`Switch to ${
-              theme === "light" ? "dark" : "light"
-            } mode`}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"
+              } mode`}
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
@@ -85,13 +127,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
             <Link
               key={item.name}
               to={item.href}
-              className={`nav-link ${
-                isActive(item.href)
+              className={`nav-link ${isActive(item.href)
                   ? "active fw-bold text-primary"
                   : theme === "dark"
-                  ? "text-white"
-                  : "text-dark"
-              }`}
+                    ? "text-white"
+                    : "text-dark"
+                }`}
             >
               {item.name}
             </Link>
@@ -102,9 +143,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
         <div className="border-top p-3">
           <div className="d-flex flex-column align-items-center">
             <h6 className="mb-1">
-              {user?.firstName} {user?.lastName}
+              {userData.firstName} {userData.lastName}
             </h6>
-            <small className="text-muted mb-3">{user?.email}</small>
+            <small className="text-muted mb-3">{userData.email}</small>
 
             <div className="d-grid gap-2 w-100">
               <Link to="/profile" className="btn btn-outline-primary btn-sm">
