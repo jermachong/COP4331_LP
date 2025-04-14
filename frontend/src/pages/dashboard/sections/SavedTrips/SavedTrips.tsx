@@ -18,7 +18,7 @@ interface SavedTrip {
 }
 
 const FALLBACK_IMG =
-  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  "https://images.unsplash.com/photo-1550340499-a6c60fc8287c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFyaXN8ZW58MHwwfDB8fHww";
 
 const formatPrice = (value: string | number) => {
   const n = Number(String(value).replace(/[^0-9.]+/g, ""));
@@ -49,7 +49,7 @@ const SavedTrips: React.FC = () => {
         const API_URL =
           import.meta.env.MODE === "development"
             ? "http://localhost:5000/api"
-            : "https://travelinggenie.com/api";
+            : "http://travelinggenie.com/api";
 
         const res = await fetch(`${API_URL}/searchItinerary`, {
           method: "POST",
@@ -119,7 +119,7 @@ const SavedTrips: React.FC = () => {
       const API_URL =
         import.meta.env.MODE === "development"
           ? "http://localhost:5000/api"
-          : "https://travelinggenie.com/api";
+          : "http://travelinggenie.com/api";
 
       const res = await fetch(`${API_URL}/deleteItinerary`, {
         method: "POST",
@@ -223,11 +223,11 @@ const SavedTrips: React.FC = () => {
                   <div className="d-flex gap-3 mb-3">
                     <div className="d-flex align-items-center text-muted">
                       <Calendar size={16} className="me-1" />
-                      <small>{trip.duration} days </small>
+                      <small>{trip.duration}</small>
                     </div>
                     <div className="d-flex align-items-center text-muted">
                       <Users size={16} className="me-1" />
-                      <small>{trip.groupSize} travelers </small>
+                      <small>{trip.groupSize}</small>
                     </div>
                   </div>
 
@@ -246,7 +246,7 @@ const SavedTrips: React.FC = () => {
 
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="d-flex gap-2 overflow-auto">
-                      {trip.tags.slice(0, 4).map((tag) => (
+                      {trip.tags.map((tag) => (
                         <span
                           key={tag}
                           className="badge bg-light text-dark text-truncate"

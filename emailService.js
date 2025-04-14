@@ -12,7 +12,7 @@ const generateToken = () => {
 const buildFrontendUrl = (path) => {
   const base =
     process.env.NODE_ENV === "production"
-      ? "https://travelinggenie.com"
+      ? "http://travelinggenie.com"
       : "http://localhost:5173";
   return `${base}${path}`;
 };
@@ -22,7 +22,7 @@ const sendVerificationEmail = async (email, token) => {
   // Determine the frontend URL based on the environment
   const frontendUrl =
     process.env.NODE_ENV === "production"
-      ? "https://travelinggenie.com"
+      ? "http://travelinggenie.com"
       : "http://localhost:5173";
 
   console.log("[DEBUG] Environment:", process.env.NODE_ENV);
