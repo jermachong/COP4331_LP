@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import VerifyEmail from "./pages/authentication/VerifyEmail";
+import VerifyEmailPending from "./pages/authentication/VerifyEmailPending";
 import ForgotPassword from "./pages/authentication/ForgotPassword";
 import ResetPassword from "./pages/authentication/ResetPassword";
 import NavigationBar from "./components/navbar";
@@ -59,13 +60,8 @@ const AppContent: React.FC = () => {
   const handleLogin = (username: string, userData: any) => {
     setUser(username);
     setIsLoggedIn(true);
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        username,
-        ...userData,
-      })
-    );
+    // Store the user data as received from the server
+    localStorage.setItem("user", JSON.stringify(userData));
     login(userData);
     navigate("/dashboard");
   };
@@ -155,6 +151,11 @@ const AppContent: React.FC = () => {
                 element={<LoginSignup onLoginSuccess={handleLogin} />}
               />
               <Route path="/verify-email/:token" element={<VerifyEmail />} />
+              <Route path="/verify-email" element={<VerifyEmail />} />
+              <Route
+                path="/verify-email-pending"
+                element={<VerifyEmailPending />}
+              />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />
             </>

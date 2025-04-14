@@ -4,7 +4,7 @@ interface User {
   userId: string;
   firstName: string;
   lastName: string;
-  token: string;
+  token?: string;
 }
 
 interface AuthContextType {

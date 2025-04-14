@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 
 const VerifyEmail: React.FC = () => {
+  const { token: tokenFromPath } = useParams();
   const [searchParams] = useSearchParams();
+  const token = tokenFromPath || searchParams.get("token");
   const navigate = useNavigate();
   const [status, setStatus] = useState<"verifying" | "success" | "error">(
     "verifying"
@@ -15,8 +17,6 @@ const VerifyEmail: React.FC = () => {
 
   useEffect(() => {
     const verifyEmail = async () => {
-      const token = searchParams.get("token");
-
       if (!token) {
         setStatus("error");
         setMessage("Invalid verification link");
@@ -24,25 +24,50 @@ const VerifyEmail: React.FC = () => {
       }
 
       try {
+        console.log("[DEBUG] Verifying token:", token);
+        console.log("[DEBUG] API URL:", API_URL);
+        // Try both path parameter and query parameter formats
         const response = await fetch(`${API_URL}/verify-email/${token}`);
-        const data = await response.json();
-
-        if (response.ok) {
-          setStatus("success");
-          setMessage("Email verified successfully! You can now log in.");
-          setTimeout(() => navigate("/login"), 3000);
+        if (!response.ok) {
+          // If path parameter fails, try query parameter
+          const queryResponse = await fetch(
+            `${API_URL}/verify-email?token=${token}`
+          );
+          if (!queryResponse.ok) {
+            throw new Error("Verification failed");
+          }
+          const data = await queryResponse.json();
+          handleVerificationSuccess(data);
         } else {
-          setStatus("error");
-          setMessage(data.error || "Verification failed");
+          const data = await response.json();
+          handleVerificationSuccess(data);
         }
       } catch (error) {
+        console.error("[DEBUG] Verification error:", error);
         setStatus("error");
         setMessage("An error occurred during verification");
       }
     };
 
+    const handleVerificationSuccess = (data: { message?: string }) => {
+      setStatus("success");
+      setMessage(
+        data.message || "Email verified successfully! You can now log in."
+      );
+
+      // Get stored user data from localStorage
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        // Navigate to dashboard after successful verification
+        setTimeout(() => navigate("/dashboard"), 3000);
+      } else {
+        // If no stored user data, redirect to login
+        setTimeout(() => navigate("/login"), 3000);
+      }
+    };
+
     verifyEmail();
-  }, [searchParams, navigate]);
+  }, [token, navigate]);
 
   return (
     <div className="container mt-5">
