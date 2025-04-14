@@ -88,7 +88,7 @@ const SavedTripsPreview: React.FC = () => {
                     };
                 });
 
-                const limited = trips.slice(0, 3);
+                const limited = trips.slice(-3);
                 setSavedTrips(limited);
             } catch (err) {
                 const msg = err instanceof Error ? err.message : "Unknown error";
@@ -182,18 +182,13 @@ const SavedTripsPreview: React.FC = () => {
                             />
 
                             <div className="card-body d-flex flex-column flex-grow-1">
-                                <h5 className="card-title text-truncate" title={trip.title}>
+                                <h5 className="card-title" title={trip.title}>
                                     {trip.title}
                                 </h5>
 
                                 <div className="d-flex align-items-center text-muted mb-2">
                                     <MapPin size={16} className="me-1" />
-                                    <small
-                                        className="text-truncate"
-                                        style={{ maxWidth: "80%" }}
-                                    >
-                                        {trip.destination}
-                                    </small>
+                                    <small>{trip.destination}</small>
                                 </div>
 
                                 <div className="d-flex gap-3 mb-3">

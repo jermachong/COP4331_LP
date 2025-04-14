@@ -206,7 +206,7 @@ const SavedTrips: React.FC = () => {
                 />
 
                 <div className="card-body d-flex flex-column flex-grow-1">
-                  <h5 className="card-title text-truncate" title={trip.title}>
+                  <h5 className="card-title" title={trip.title}>
                     {trip.title}
                   </h5>
 
