@@ -156,6 +156,7 @@ const SavedTripsPreview: React.FC = () => {
     if (savedTrips.length === 0) {
         return (
             <>
+                <h3 className="h3 mb-4">Recently Saved Trips</h3>
                 <p className="text-muted">No saved trips yet.</p>
             </>
         );
@@ -164,7 +165,7 @@ const SavedTripsPreview: React.FC = () => {
     return (
         <div className="py-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
-                <h3 className="h4 mb-0">Recently Saved Trips</h3>
+                <h3 className="h3 mb-0">Recently Saved Trips</h3>
                 <Button variant="primary" onClick={() => navigate("/saved")}>
                     View All Saved Trips
                 </Button>
