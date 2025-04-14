@@ -281,9 +281,9 @@ const TripQuestionnaire: React.FC<TripQuestionnaireProps> = ({
               {!isSidebar && (
                 <div className={styles.qHeader}>
                   <h2 className={styles.title}>Plan Your Trip</h2>
-                  <div className={styles.exitButton} onClick={handleExit}>
+                  {/* <div className={styles.exitButton} onClick={handleExit}>
                     &times;
-                  </div>
+                  </div> */}
                 </div>
               )}
               {error && <Alert variant="danger">{error}</Alert>}

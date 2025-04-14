@@ -3,6 +3,7 @@ import TripCard from "./TripCard";
 import { PlusIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Explore from "../../../../components/Explore";
+import SavedTripsPreview from "../../../../components/SavedTripsPreview";
 
 const ExploreSection: React.FC = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const ExploreSection: React.FC = () => {
         </button>
       </div>
 
-      {/* Upcoming trips section */}
+      {/* Upcoming trips section 
       {upcomingTrips.length > 0 && (
         <div className="mb-5">
           <h2 className="h3 mb-4">Your Upcoming Trips</h2>
@@ -65,7 +66,9 @@ const ExploreSection: React.FC = () => {
             ))}
           </div>
         </div>
-      )}
+      )} */}
+
+      <SavedTripsPreview />
 
       {/* Popular destinations */}
       <div>
