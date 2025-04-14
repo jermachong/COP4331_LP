@@ -162,7 +162,7 @@ const SavedTripsPreview: React.FC = () => {
     }
 
     return (
-        <Container className="py-4">
+        <div className="py-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <h3 className="h4 mb-0">Recently Saved Trips</h3>
                 <Button variant="primary" onClick={() => navigate("/saved")}>
@@ -255,7 +255,7 @@ const SavedTripsPreview: React.FC = () => {
                     </Col>
                 ))}
             </Row>
-        </Container>
+        </div>
     );
 };
 
