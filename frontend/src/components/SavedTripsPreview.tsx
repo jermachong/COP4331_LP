@@ -198,11 +198,11 @@ const SavedTripsPreview: React.FC = () => {
                                 <div className="d-flex gap-3 mb-3">
                                     <div className="d-flex align-items-center text-muted">
                                         <Calendar size={16} className="me-1" />
-                                        <small>{trip.duration}</small>
+                                        <small>{trip.duration} days </small>
                                     </div>
                                     <div className="d-flex align-items-center text-muted">
                                         <Users size={16} className="me-1" />
-                                        <small>{trip.groupSize}</small>
+                                        <small>{trip.groupSize} travelers </small>
                                     </div>
                                 </div>
 
