@@ -347,7 +347,6 @@ exports.setApp = function (app, dbInstance) {
           userId: id,
           firstName: fn,
           lastName: ln,
-          token: id.toString(), // Use userId as token for now
           error: error,
         });
       } else {
@@ -402,20 +401,9 @@ exports.setApp = function (app, dbInstance) {
 
   // This endpoint is used to delete an itinerary from the database
   app.post("/api/deleteItinerary", async (req, res, next) => {
-    // incoming: userId, eventId, jwtToken
+    // incoming: userId, eventId
     // outgoing: success/error message
-    const { userId, itineraryId } = req.body;
-
-    // This checks if the jwt token is expired. If it is, it sends a 200 response with an error message and an empty jwtToken
-    try {
-      if (token.isExpired(jwtToken)) {
-        var r = { error: "The jwt token is no longer valid", jwtToken: "" };
-        res.status(200).json(r);
-        return;
-      }
-    } catch (e) {
-      console.log(e.message);
-    }
+    const { userId, itineraryId } = req.body;    
 
     // checks for missing fields in the request body. If any are missing, it sends a 400 error response
     if (!userId || !itineraryId) {
@@ -483,7 +471,7 @@ exports.setApp = function (app, dbInstance) {
   app.post("/api/editUser", async (req, res, next) => {
     // incoming: userId, newfirstName, newlastName, newEmail
     // outgoing: success/error message
-    const { userId, firstName, lastName, email, password, jwtToken } = req.body;
+    const { userId, firstName, lastName, email, password } = req.body;
 
     // This checks if the userId is provided in the request body. If not, it sends a 400 error response
     if (!userId) {
@@ -548,7 +536,6 @@ exports.setApp = function (app, dbInstance) {
         return res.status(404).json({ error: "User not found" });
       }
 
-      // refresh the JWT token
       res.status(200).json({
         userId: user.UserId,
         firstName: user.FirstName,
@@ -564,7 +551,7 @@ exports.setApp = function (app, dbInstance) {
   app.post("/api/editItinerary", async (req, res, next) => {
     // incoming: userId, itineraryID, itineraryNode
     // outgoing: success/error message
-    const { userId, itineraryId, newItinerary, jwtToken } = req.body;
+    const { userId, itineraryId, newItinerary } = req.body;
 
     // check for missing fields in the request body. If any are missing, it sends a 400 error response
     if (!userId || !itineraryId || !newItinerary) {
@@ -595,7 +582,7 @@ exports.setApp = function (app, dbInstance) {
 
   // Endpoint for generating travel itinerary using Gemini
   app.post("/api/generate-itinerary", async (req, res) => {
-    const { destination, duration, groupSize, preferences, jwtToken } =
+    const { destination, duration, groupSize, preferences } =
       req.body;
 
     try {
