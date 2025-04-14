@@ -17,8 +17,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
 
   const navigation = [
     { name: "Home", href: "/dashboard" },
-    { name: "Saved Trips", href: "/saved" },
     { name: "Plan a Trip", href: "/tripQuestionnaire" },
+    { name: "Saved Trips", href: "/saved" },
     { name: "Explore", href: "/explore" },
   ];
 
