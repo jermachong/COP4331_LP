@@ -1563,7 +1563,7 @@ export const sampleItineraries: SampleItinerary[] = [
             "cost": "$100 (for private transfer)"
           },
           {
-            "time": "N/A",
+            "time": "12:00 PM",
             "activity": "Departure from Cusco",
             "location": "Alejandro Velasco Astete International Airport (CUZ), Cusco",
             "details": "Depart from Cusco.",

@@ -159,7 +159,7 @@ const ItineraryPage: React.FC = () => {
                     <span>{activity.details}</span>
                     <hr className="activity-divider my-2" />
                     <span className="cost">
-                      <strong>Cost:</strong> {formatPrice(activity.cost)}
+                      <strong>Cost:</strong> {activity.cost}
                     </span>
                   </div>
                 </div>
