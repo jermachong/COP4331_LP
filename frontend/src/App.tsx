@@ -14,7 +14,7 @@ import ResetPassword from "./pages/authentication/ResetPassword";
 import NavigationBar from "./components/navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/landing/LandingPage";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -27,6 +27,7 @@ const AppContent: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [user, setUser] = useState<string | null>(null);
   const { login, logout, user: authUser } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const isDashboard =
@@ -37,6 +38,13 @@ const AppContent: React.FC = () => {
     location.pathname === "/tripQuestionnaire" ||
     location.pathname === "/itinerary" ||
     location.pathname === "/profile";
+
+  // Force light mode on landing page
+  useEffect(() => {
+    if (location.pathname === "/" && theme === "dark") {
+      toggleTheme();
+    }
+  }, [location.pathname, theme, toggleTheme]);
 
   // Only run this effect when the component mounts
   useEffect(() => {
