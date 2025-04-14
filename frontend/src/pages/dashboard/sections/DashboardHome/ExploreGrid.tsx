@@ -6,7 +6,6 @@ import SavedTripsPreview from "../../../../components/SavedTripsPreview";
 
 const ExploreSection: React.FC = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   const [userData, setUserData] = useState({
     firstName: "",
