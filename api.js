@@ -347,6 +347,7 @@ exports.setApp = function (app, dbInstance) {
           userId: id,
           firstName: fn,
           lastName: ln,
+          token: id.toString(), // Use userId as token for now
           error: error,
         });
       } else {

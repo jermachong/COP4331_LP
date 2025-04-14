@@ -55,7 +55,6 @@ const NavigationBar = forwardRef<NavigationBarRef, NavigationBarProps>(
       }
       setShowLogin(false);
       navigate("/dashboard");
-      window.location.reload();
     };
 
     useImperativeHandle(ref, () => ({
