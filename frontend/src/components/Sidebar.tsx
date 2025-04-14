@@ -13,7 +13,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
   const sidebarWidth = 250;
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   const navigation = [
     { name: "Home", href: "/dashboard" },
@@ -114,8 +113,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
           <button
             className="btn btn-link p-0"
             onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"
-              } mode`}
+            aria-label={`Switch to ${
+              theme === "light" ? "dark" : "light"
+            } mode`}
           >
             {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
           </button>
@@ -127,12 +127,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, onLogout }) => {
             <Link
               key={item.name}
               to={item.href}
-              className={`nav-link ${isActive(item.href)
+              className={`nav-link ${
+                isActive(item.href)
                   ? "active fw-bold text-primary"
                   : theme === "dark"
-                    ? "text-white"
-                    : "text-dark"
-                }`}
+                  ? "text-white"
+                  : "text-dark"
+              }`}
             >
               {item.name}
             </Link>

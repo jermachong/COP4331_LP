@@ -7,50 +7,49 @@ import SavedTripsPreview from "../../../../components/SavedTripsPreview";
 const ExploreSection: React.FC = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user") || "{}");
-  const { firstName } = user;
 
   const [userData, setUserData] = useState({
-      firstName: "",
-      lastName: "",
-      email: "",
-    });
-  
-    const API_URL =
-      import.meta.env.MODE === "development"
-        ? "http://localhost:5000/api"
-        : "http://travelinggenie.com:5000/api";
-  
-    useEffect(() => {
-      // get user data from the backend
-      const getUserData = async () => {
-        try {
-          // get user id
-          const user = JSON.parse(localStorage.getItem("user") || "{}");
-          console.log("Local user:", user);
-          const userId = user.userId;
-  
-          // send to backend
-          const response = await fetch(`${API_URL}/get-user`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId }),
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  const API_URL =
+    import.meta.env.MODE === "development"
+      ? "http://localhost:5000/api"
+      : "http://travelinggenie.com:5000/api";
+
+  useEffect(() => {
+    // get user data from the backend
+    const getUserData = async () => {
+      try {
+        // get user id
+        const user = JSON.parse(localStorage.getItem("user") || "{}");
+        console.log("Local user:", user);
+        const userId = user.userId;
+
+        // send to backend
+        const response = await fetch(`${API_URL}/get-user`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setUserData({
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
           });
-  
-          if (response.ok) {
-            const data = await response.json();
-            setUserData({
-              firstName: data.firstName,
-              lastName: data.lastName,
-              email: data.email,
-            });
-          }
-        } catch (error) {
-          console.error("Error fetching user data:", error);
         }
-      };
-  
-      getUserData();
-    }, []);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    getUserData();
+  }, []);
 
   const handleCreateNewTrip = () => {
     navigate("/tripQuestionnaire");
@@ -61,7 +60,9 @@ const ExploreSection: React.FC = () => {
       {/* Welcome section */}
       <div className="d-flex justify-content-between align-items-center mb-5">
         <div>
-          <h1 className="h2 mb-1">Welcome back, {userData.firstName || "Traveler"}</h1>
+          <h1 className="h2 mb-1">
+            Welcome back, {userData.firstName || "Traveler"}
+          </h1>
           <p className="text-muted mb-0">Ready to plan your next adventure?</p>
         </div>
         <button
