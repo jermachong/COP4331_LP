@@ -100,16 +100,17 @@ const UserProfile: React.FC = () => {
       const userId = user.userId;
 
       // send to backend
-      const response = await fetch(`${API_URL}/edituser`, {
+      const response = await fetch(`${API_URL}/editUser`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userId, firstName, lastName, email }),
+        body: JSON.stringify({ userId, firstName, lastName}),
       });
 
       // server response
       const data = await response.json();
+      console.log("Response:", data);
       if (response.ok) {
         console.log("Profile updated successfully! With: ", data);
         setEditing(false);
@@ -193,9 +194,14 @@ const UserProfile: React.FC = () => {
                 )}
               </div>
             </div>
+            {editing && (
+              <button className="btn btn-success mt-3" onClick={handleSave}>
+                Save Changes
+              </button>
+            )}
             <div className="mt-3">
               <label>Email</label>
-              {editing ? (
+              {/* {editing ? (
                 <input
                   className="form-control"
                   value={email}
@@ -203,14 +209,9 @@ const UserProfile: React.FC = () => {
                 />
               ) : (
                 <p>{email}</p>
-              )}
+              )} */}
+              <p>{email}</p>
             </div>
-
-            {editing && (
-              <button className="btn btn-success mt-3" onClick={handleSave}>
-                Save Changes
-              </button>
-            )}
 
             <div className="mt-3">
               <label>Password</label>
