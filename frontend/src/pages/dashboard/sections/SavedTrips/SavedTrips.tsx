@@ -246,7 +246,7 @@ const SavedTrips: React.FC = () => {
 
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="d-flex gap-2 overflow-auto">
-                      {trip.tags.map((tag) => (
+                      {trip.tags.slice(0, 4).map((tag) => (
                         <span
                           key={tag}
                           className="badge bg-light text-dark text-truncate"
